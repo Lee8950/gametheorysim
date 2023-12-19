@@ -22,6 +22,7 @@ public:
 
 };
 
+extern int debug_var;
 extern int S;
 extern int Q;
 
@@ -35,6 +36,7 @@ extern int device_count;
 extern std::random_device rd;
 extern std::mt19937 gen;
 extern std::uniform_real_distribution<> uniform;
+extern std::uniform_real_distribution<> wdist;
 extern std::vector<double> tracker;
 
 class Device;
@@ -59,6 +61,8 @@ public:
         total_demand(total_demand), caching_cost(caching_cost), serving_capacity(serving_capacity), storage_capacity(storage_capacity), device_id(device_id) {
         
         caching_desicions.resize(files_total);
+        //for(int i = 0; i < files_total; i++)
+        //    caching_desicions[i] = 0;
         memset(caching_desicions.data(), 0, sizeof(int) * files_total);
     }
 
